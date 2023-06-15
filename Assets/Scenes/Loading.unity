@@ -191,7 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondsOffset: 2
   slider: {fileID: 848467108}
-  loadingManager: {fileID: 11400000, guid: 236518ddb95587145aaca50bf3ccb2ff, type: 2}
+  loadingSceneContainer: {fileID: 11400000, guid: 236518ddb95587145aaca50bf3ccb2ff, type: 2}
 --- !u!4 &108705905
 Transform:
   m_ObjectHideFlags: 0
