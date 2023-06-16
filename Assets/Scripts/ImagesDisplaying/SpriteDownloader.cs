@@ -11,12 +11,12 @@ public class SpriteDownloader
 	{
 		if(id>maxId) 
 		{
+
 			Debug.Log("Index Out Of Bounds");
 			return null;
 		}
 		
 		string imageUrl = storageUrl + id + ".jpg";
-		Debug.Log(imageUrl);
 		
 		using UnityWebRequest www = UnityWebRequestTexture.GetTexture(imageUrl);
 		var request = www.SendWebRequest();

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9e2b556c6cbc2543817498ef620758e, type: 3}
-  m_Name: Scene To Load SO
+  m_Name: Scene To LoadSO
   m_EditorClassIdentifier: 
-  loadingScreenSceneReference:
+  loadingScreenReference:
     m_AssetGUID: 062bd92f3003d94498e474510be6b6c4
     m_SubObjectName: 
     m_SubObjectType: 

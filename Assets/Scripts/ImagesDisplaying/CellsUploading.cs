@@ -12,10 +12,11 @@ public class CellsUploading : MonoBehaviour
 	private float cellHeight;
 	private float topOffset;
 	private float cellOffset;
-	private int coeff; //assuming that at least part of 1st image is shown
-	private int visibleElements;
+	private int visibleElements; //assuming that at least part is shown
+	private int placedElements;
 	private int maxElements = 66;
 	private int rows;
+	private int elementsInRow = 2;
 	private ImageFactory factory;
 	[SerializeField] private RectTransform scrollView;
 	
@@ -31,8 +32,8 @@ public class CellsUploading : MonoBehaviour
 		cellOffset = grid.spacing.y;
 		rows = grid.constraintCount;
 
-		coeff = CalculateNumberOfVisibleElements();
-		visibleElements = transform.childCount;
+		visibleElements = CalculateNumberOfVisibleElements();
+		placedElements = transform.childCount;
 	}
 
 	private int CalculateNumberOfVisibleElements()
@@ -42,13 +43,18 @@ public class CellsUploading : MonoBehaviour
 
 	private async void Update()
 	{
-		if(visibleElements >=maxElements) return;
-		if(content.localPosition.y  + rectHeight >= topOffset + coeff * (cellHeight + cellOffset))
+		if(placedElements >=maxElements) return;
+		if(content.localPosition.y  + rectHeight >= topOffset + visibleElements * (cellHeight + cellOffset))
 		{
-			coeff++;
+			visibleElements++;
+			int currentId = placedElements;
+			placedElements+=elementsInRow;
+			
 			for(int i=0; i<rows; i++)
-				await CreateElementAsync(++visibleElements);
-
+			{
+				await CreateElementAsync(++currentId); //mb seperate into two tasks?
+			}
+				
 			content.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, content.rect.size.y + cellHeight + cellOffset);
 		}
 	}

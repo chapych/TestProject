@@ -12,6 +12,6 @@ public class OnClickLoadImage : OnClickEvent
 	public override UnityAction Event()
 	{
 		Image image = button.GetComponent<Image>();
-		return ()=>imageContainer.LoadImage(image);
+		return () => imageContainer.Set(image);
 	}
 }

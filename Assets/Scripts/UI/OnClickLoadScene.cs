@@ -6,8 +6,14 @@ using UnityEngine.Events;
 
 public class OnClickLoadScene : OnClickEvent
 {
-	[SerializeField] private SceneToLoadContainerSO sceneContainer;
+	[SerializeField] private SceneToLoadContainerSO container;
 	[SerializeField] private AssetReference sceneToLoadReference;
 
-    public override UnityAction Event() => () => sceneContainer.LoadScene(sceneToLoadReference);
+	public override UnityAction Event() => () => SetAndLoad(sceneToLoadReference);
+	
+	private void SetAndLoad(AssetReference sceneToLoadReference)
+	{
+		container.Set(sceneToLoadReference);
+		container.Load();
+	}
 }

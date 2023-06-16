@@ -15,7 +15,6 @@ public class ImageFactory : MonoBehaviour
 		
 		Image image = Instantiate(prefab);
 		image.sprite = sprite;
-		
 		return image;
 	}
 }

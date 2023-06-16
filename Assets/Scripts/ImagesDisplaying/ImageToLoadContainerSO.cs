@@ -8,10 +8,10 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "Image To Load Container", menuName = "ScriptableObjects/Image To Load Container")]
 public class ImageToLoadContainerSO : ScriptableObject
 {
-	public Image imageToLoad { get; private set; }
+	public Image ImageToLoad { get; private set; }
 	
-	public void LoadImage(Image image)
+	public void Set(Image image)
 	{
-		imageToLoad = image;
+		ImageToLoad = image;
 	}
 }

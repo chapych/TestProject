@@ -16,7 +16,7 @@ public class AssyncSceneLoading : MonoBehaviour
 	
 	private void OnEnable() 
 	{
-		AssetReference sceneReference = loadingSceneContainer.sceneToLoadReference;
+		AssetReference sceneReference = loadingSceneContainer.nextSceneReference;
 		sceneHandle = Addressables.LoadSceneAsync(sceneReference, LoadSceneMode.Single, false);
 		
 		sceneHandle.Completed+=OnSceneLoadedAsync;

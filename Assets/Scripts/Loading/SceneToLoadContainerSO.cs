@@ -7,12 +7,16 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "Scene To Load Container", menuName = "ScriptableObjects/Scene To Load Container")]
 public class SceneToLoadContainerSO : ScriptableObject
 {
-	[SerializeField] private AssetReference loadingScreenSceneReference;
-	public AssetReference sceneToLoadReference { get; private set; }
+	[SerializeField] private AssetReference loadingScreenReference;
+	public AssetReference nextSceneReference { get; private set; }
 	
-	public void LoadScene(AssetReference sceneReference) //set the scene and load loading screen
+	public void Set(AssetReference nextSceneReference) 
 	{
-		sceneToLoadReference = sceneReference;
-		Addressables.LoadSceneAsync(loadingScreenSceneReference);
+		this.nextSceneReference = nextSceneReference;
+	}
+	
+	public void Load()
+	{
+		Addressables.LoadSceneAsync(loadingScreenReference);
 	}
 }
