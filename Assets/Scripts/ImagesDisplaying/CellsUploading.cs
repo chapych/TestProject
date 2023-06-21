@@ -64,5 +64,6 @@ public class CellsUploading : MonoBehaviour
 		var newImage = await factory.CreateAsync(id);
 		
 		newImage.transform.SetParent(transform);
+		newImage.rectTransform.localScale = Vector3.one;
 	}
 }
